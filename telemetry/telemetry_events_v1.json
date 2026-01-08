@@ -1,0 +1,78 @@
+{
+  "protocol": "Protocol Ψ",
+  "version": "v1.0",
+  "versioning_rule": {
+    "append_only": true,
+    "no_renames_or_deletions": true,
+    "breaking_changes_require_new_version": true
+  },
+  "domains": {
+    "W": "World State",
+    "CCS": "Collateral Control System",
+    "HCE": "Heroic Choice Engine",
+    "CCIP": "Canonical Coherence Integrity Protocol",
+    "COST": "Immutable Ledger"
+  },
+  "events": [
+    {
+      "name": "W_EVALUATION_TICK",
+      "domain": "W",
+      "payload": [
+        "gain",
+        "cost",
+        "lambda",
+        "W_value",
+        "state"
+      ]
+    },
+    {
+      "name": "CCS_PRECISION_SAMPLE",
+      "domain": "CCS",
+      "payload": [
+        "precision_index",
+        "shockwave_radius",
+        "speed_band"
+      ]
+    },
+    {
+      "name": "HCE_SIMULTANEOUS_GOODS_PRESENTED",
+      "domain": "HCE",
+      "payload": [
+        "node_count",
+        "time_pressure"
+      ]
+    },
+    {
+      "name": "HCE_FIRST_COMMITMENT_LATCHED",
+      "domain": "HCE",
+      "payload": [
+        "time_to_commit_ms",
+        "chosen_node"
+      ]
+    },
+    {
+      "name": "CCIP_BRANCH_DENSITY",
+      "domain": "CCIP",
+      "payload": [
+        "active_high_detail_branches"
+      ]
+    },
+    {
+      "name": "CCIP_PRUNE_EXECUTED",
+      "domain": "CCIP",
+      "payload": [
+        "pruned_branches",
+        "cpu_cycles_saved_estimate"
+      ]
+    },
+    {
+      "name": "COST_LEDGER_APPEND",
+      "domain": "COST",
+      "payload": [
+        "source",
+        "category",
+        "weight"
+      ]
+    }
+  ]
+}
