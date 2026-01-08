@@ -1,0 +1,15 @@
+Library/
+
+Temp/
+
+Logs/
+
+obj/
+
+Build/
+
+Builds/
+
+.vs/
+
+UserSettings/
