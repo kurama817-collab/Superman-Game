@@ -17,6 +17,11 @@ systemic consequence, ethical constraint, and persistent simulation — collecti
 - Engine: (Unity or Unreal — TBD / in progress)
 - Goal: Build a playable open demo with community contributions
 
+## Telemetry Contract
+Canonical telemetry event names (v1.0) are defined in
+`telemetry/telemetry_events_v1.json`. This file is the single source of truth
+for all emitters and analyzers.
+
 ## What This Is (and Is Not)
 **This is:**
 - A systems-first, open-source framework
@@ -30,4 +35,3 @@ systemic consequence, ethical constraint, and persistent simulation — collecti
 
 ## How to Contribute
 See `CONTRIBUTING.md` for guidelines.
-
