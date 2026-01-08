@@ -1,0 +1,59 @@
+{
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "tag": "stub"
+  },
+  "envelope": {
+    "format": "jsonl",
+    "required_fields": [
+      "event",
+      "ts_ms",
+      "session_id",
+      "payload"
+    ]
+  },
+  "cadence": {
+    "W_EVALUATION_TICK_ms": 250
+  },
+  "events": [
+    {
+      "name": "W_EVALUATION_TICK",
+      "domain": "telemetry",
+      "description": "Demo W evaluation tick.",
+      "payload": {
+        "keys": [
+          "gain",
+          "cost",
+          "lambda",
+          "W_value",
+          "state"
+        ],
+        "values": [
+          "float",
+          "float",
+          "float",
+          "float",
+          "string"
+        ]
+      }
+    },
+    {
+      "name": "CCS_PRECISION_SAMPLE",
+      "domain": "telemetry",
+      "description": "Demo CCS precision sample.",
+      "payload": {
+        "keys": [
+          "precision_index",
+          "shockwave_radius",
+          "speed_band"
+        ],
+        "values": [
+          "float",
+          "float",
+          "string"
+        ]
+      }
+    }
+  ]
+}
