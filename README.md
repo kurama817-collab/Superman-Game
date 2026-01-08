@@ -12,6 +12,24 @@ systemic consequence, ethical constraint, and persistent simulation — collecti
 - Player choices create irreversible consequences
 - Power does not increase; **control** does
 
+## Telemetry Contract (Canonical)
+
+This project uses a stable, append-only telemetry API to prevent naming drift across engines and emitters.
+
+**Single source of truth:** `telemetry/telemetry_events_v1.json`
+
+Rules:
+- Event names are **append-only** (no renames/deletes).
+- Breaking changes require a **new major** version.
+- Emitters (sandbox, Unity, Unreal, CI) must implement event names **verbatim**.
+- W(x) tick cadence is specified as **250ms**.
+
+All telemetry envelopes should include:
+- `event` (string)
+- `ts_ms` (int)
+- `session_id` (string)
+- `payload` (object)
+
 ## Project Status
 - Design architecture: Complete and documented
 - Engine: (Unity or Unreal — TBD / in progress)
@@ -30,4 +48,3 @@ systemic consequence, ethical constraint, and persistent simulation — collecti
 
 ## How to Contribute
 See `CONTRIBUTING.md` for guidelines.
-
