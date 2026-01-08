@@ -1,0 +1,115 @@
+{
+  "protocol": {
+    "name": "Protocol Ψ Telemetry Contract",
+    "edition": "Superman-Style Game Framework",
+    "owner": "Project Maintainers",
+    "status": "CANONICAL",
+    "source_of_truth": true
+  },
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "tag": "v1.0"
+  },
+  "rules": {
+    "append_only": true,
+    "no_renames": true,
+    "no_deletes": true,
+    "breaking_changes_require_new_major": true,
+    "backwards_compatible_additions_allowed": true,
+    "payload_fields_may_only_expand_in_minor_versions": true
+  },
+  "envelope": {
+    "format": "jsonl_event_per_line",
+    "required_fields": ["event", "ts_ms", "session_id", "payload"],
+    "field_types": {
+      "event": "string",
+      "ts_ms": "int",
+      "session_id": "string",
+      "payload": "object"
+    },
+    "notes": [
+      "Telemetry is append-only; emitters must never rewrite past events.",
+      "All emitters (sandbox, Unity, Unreal) must emit these event names verbatim."
+    ]
+  },
+  "cadence": {
+    "W_EVALUATION_TICK_ms": 250
+  },
+  "domains": [
+    "W(x)",
+    "CCS",
+    "HCE",
+    "CCIP",
+    "ImmutableLedger"
+  ],
+  "events": [
+    {
+      "name": "W_EVALUATION_TICK",
+      "domain": "W(x)",
+      "description": "Periodic world sustainability evaluation tick.",
+      "payload": {
+        "gain": "float",
+        "cost": "float",
+        "lambda": "float",
+        "W_value": "float",
+        "state": "string"
+      }
+    },
+    {
+      "name": "CCS_PRECISION_SAMPLE",
+      "domain": "CCS",
+      "description": "Sample of player control/precision and displacement impact.",
+      "payload": {
+        "precision_index": "float",
+        "shockwave_radius": "float",
+        "speed_band": "string"
+      }
+    },
+    {
+      "name": "HCE_SIMULTANEOUS_GOODS_PRESENTED",
+      "domain": "HCE",
+      "description": "Impossible Split presented: simultaneous emergencies (goods).",
+      "payload": {
+        "node_count": "int",
+        "time_pressure": "float"
+      }
+    },
+    {
+      "name": "HCE_FIRST_COMMITMENT_LATCHED",
+      "domain": "HCE",
+      "description": "Player commits to one branch; commitment latch activates.",
+      "payload": {
+        "time_to_commit_ms": "int",
+        "chosen_node": "string"
+      }
+    },
+    {
+      "name": "CCIP_BRANCH_DENSITY",
+      "domain": "CCIP",
+      "description": "Current high-detail branch count being simulated.",
+      "payload": {
+        "active_high_detail_branches": "int"
+      }
+    },
+    {
+      "name": "CCIP_PRUNE_EXECUTED",
+      "domain": "CCIP",
+      "description": "Non-chosen branches are pruned from high-detail computation.",
+      "payload": {
+        "pruned_branches": "int",
+        "cpu_cycles_saved_estimate": "float"
+      }
+    },
+    {
+      "name": "COST_LEDGER_APPEND",
+      "domain": "ImmutableLedger",
+      "description": "Append-only ledger entry recording cost, debt, or absence.",
+      "payload": {
+        "source": "string",
+        "category": "string",
+        "weight": "float"
+      }
+    }
+  ]
+}
